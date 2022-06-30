@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM manipulation</title>
+    <style>
+        #newelement {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading">DOM session</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi eos, architecto aspernatur esse voluptate adipisci facilis, officiis harum iure iusto in quisquam? Cum praesentium molestias repudiandae voluptate et ducimus expedita eligendi. Maxime,
+        nam animi.</p>
+    <input type="text" id="name">
+    <button class="btn" id="btnbtn">Search</button>
+    <ul id="list" class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+    <div id="newelement"></div>
+    <script>
+        // var h1 = document.createElement('h1')
+        // console.log(h1)
+        // h1.className = "heading"
+        // h1.id = "heading1"
+        // h1.setAttribute('title', "i am heading")
+        // var h1text = document.createTextNode('i am heading')
+        // h1.appendChild(h1text)
+
+        // var newelement = document.getElementById('newelement')
+        // newelement.innerHTML = h1
+
+        // var body = document.querySelector('body')
+        // var par = document.querySelector("input")
+        // console.log(par)
+        // body.insertBefore(h1, par)
+
+
+        // var newelement = document.getElementById('newelement')
+
+        // newelement.addEventListener('click', myfunction)
+
+        // function myfunction(e) {
+        //     var body = document.querySelector('body')
+        //     body.style.backgroundColor = "rgb(" + e.offsetX + "," + e.offsetY + ",23)"
+        // }
+
+        // var input = document.querySelector('input[type="text"]')
+        // console.log(input)
+        // input.addEventListener("keydown", myfunction)
+
+        // function myfunction(e) {
+        //     console.log(e.type)
+        // }
+
+        var input = document.querySelector('input[type="text"]')
+        console.log(input)
+        input.addEventListener("focus", myfunction)
+
+        function myfunction(e) {
+            console.log(e.type)
+        }
+    </script>
+</body>
+
+</html>

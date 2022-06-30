@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+
+<body>
+    <div>
+        <h2 id="3">
+
+            <p id="1"></p>
+            <p id="2"></p>
+
+        </h2>
+        <button id="btn" type="button" onclick="loaddoc()">clickme</button>
+    </div>
+    <script>
+        function loaddoc() {
+            const xhr = new XMLHttpRequest()
+            xhr.open("POST", "http://dummy.restapiexample.com/api/v1/create", true)
+            xhr.responseType = "json"
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    console.log(xhr.response)
+                } else {
+                    console.log("error found")
+                }
+            }
+            let mydata = '{"name":"piyush","salary":"50000","age":"35"}'
+            xhr.send(mydata)
+        }
+    </script>
+</body>
+
+</html>

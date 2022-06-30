@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>asyncJS</title>
+</head>
+
+<body>
+    <p id="demo">this is async function practice</p>
+    <script>
+        // alert("done")
+
+        // function myDisplayer(some) {
+        //     document.getElementById("demo").innerHTML = some;
+        // }
+
+        // function getfile(mycallback) {
+        //     let req = new XMLHttpRequest;
+        //     req.open('GET', "bulb.html");
+        //     req.onload = function() {
+        //         if (req.status = 200) {
+        //             mycallback(this.responseText)
+        //         } else {
+        //             mycallback("Error: " + req.status)
+        //         }
+        //     }
+        //     req.send()
+        // }
+
+        // getfile(myDisplayer)
+
+
+        //sync vs async
+
+        //synchronous
+        // const fun2 = () => {
+        //     console.log('function2 is starting');
+        // }
+
+        // const fun1 = () => {
+        //     console.log('function1 is starting');
+
+        //     fun2();
+        //     console.log('function1 is ending');
+        // }
+
+
+        // fun1()
+
+        //asynchronous
+        // const fun2 = () => {
+        //     setTimeout(() => {
+        //         console.log('function2 is starting');
+        //     }, 3000)
+
+        // }
+
+        // const fun1 = () => {
+        //     console.log('function1 is starting');
+
+        //     fun2();
+        //     console.log('function1 is ending');
+        // }
+
+
+        // fun1()
+
+
+        //promise function in async
+        // function display(some) {
+        //     document.getElementById('demo').innerHTML = some
+        // }
+
+        // const mypromise = new Promise((resolve, reject) => {
+
+        //         setTimeout(() => {
+        //             let a = 10;
+        //             if (a > 5) {
+        //                 resolve("true")
+        //             } else {
+        //                 reject("false")
+        //             }
+
+        //         }, 5000);
+
+        //     })
+        //     .then(
+        //         function(value) {
+        //             display(value);
+        //         },
+        //         function(error) {
+        //             display(error);
+        //         }
+        //     );
+
+
+        function myDisplayer(some) {
+            document.getElementById("demo").innerHTML = some;
+        }
+
+        let myPromise = new Promise(function(myResolve, myReject) {
+            let req = new XMLHttpRequest();
+            req.open('GET', "bulb.html");
+            req.onload = function() {
+                if (req.status == 200) {
+                    myResolve(req.response);
+                } else {
+                    myReject("File not Found");
+                }
+            };
+            req.send();
+        });
+
+
+        myPromise.then(function(value) {
+                myDisplayer(value)
+            },
+            function(value) {
+                myDisplayer(value)
+            }
+        )
+    </script>
+</body>
+
+</html>

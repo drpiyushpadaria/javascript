@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object practice</title>
+
+</head>
+<p id='demo'>this is object</p>
+
+<!-- <button onclick="displayDate()">The time is?</button> -->
+
+<script>
+    // const person = {
+    //     firstName: "pIyuSh",
+    //     lastName: "PaDaria",
+    //     id: 5566,
+    //     fullName: function() {
+    //         return this.firstName + " " + this.lastName;
+    //     }
+    // };
+    // document.getElementById('demo').innerHTML = person.fullName()
+
+    // function mydate() {
+    //     document.getElementById('demo').innerHTML = date();
+    // }
+
+    // function displayDate() {
+    //     document.getElementById("demo").innerHTML = Date();
+
+    // }
+
+    // const employee = {
+    //     fname: "piyush",
+    //     lname: "padaria",
+    //     age: 35,
+    //     fullname: function() {
+    //         return (this.fname + " " + this.lname).toUpperCase();
+    //     }
+    // }
+
+    // console.log(employee.fullname())
+    // console.log(Object.values(employee))
+
+
+    // const person = {
+    //     firstName: "John",
+    //     lastName: "Doe",
+    //     language: "",
+    //     set lang(lang) {
+    //         this.language = lang.toUpperCase();
+    //     }
+    // };
+
+    // // Set an object property using a setter:
+    // person.lang = "en";
+
+
+    // console.log(person.language)
+
+    // construct a function in object
+    // function myfunction(fname, lname, age, nat) {
+    //     this.firstname = fname
+    //     this.lastname = lname
+    //     this.age = age
+
+    // }
+    // myfunction.prototype.nationality = "eng"
+
+    // const myfather = new myfunction("bhupat", "bavanji", 55, "ind")
+    // const mymother = new myfunction("kanta", "bhupat", 53, "eng")
+
+    // // console.log((mymother.firstname + " " + mymother.lastname))
+    // // console.log((myfather.firstname + " " + myfather.lastname))
+    // console.log(myfather.nationality)
+    // console.log(mymother.nationality)
+
+    // function myfunction() {
+    //     let n = 20
+    //     return {
+    //         next: function() {
+    //             n += 20
+    //             return {
+    //                 value: n,
+    //                 done: false
+    //             }
+
+    //         }
+    //     }
+    // }
+    // var n = myfunction()
+    // n.next()
+    // n.next()
+
+
+    // console.log(n.next().value)
+
+    // Create an Object
+    myNumbers = {};
+
+    // Make it Iterable
+    myNumbers[Symbol.iterator] = function() {
+        let n = 0;
+        done = false;
+        return {
+            next() {
+                n += 10;
+                if (n == 100) {
+                    done = true
+                }
+                return {
+                    value: n,
+                    done: done
+                };
+            }
+        };
+    }
+
+    // Create an Iterator
+    let iterator = myNumbers[Symbol.iterator]();
+
+    let text = ""
+    while (true) {
+        const result = iterator.next();
+        if (result.done) break;
+        text += result.value + "<br>";
+    }
+
+    document.getElementById("demo").innerHTML = text;
+</script>
+
+<body>
+
+</body>
+
+</html>

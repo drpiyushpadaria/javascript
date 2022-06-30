@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax</title>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid blue;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        padding: 2px;
+    }
+</style>
+
+<body>
+    <div>
+        <h2 id="3">
+
+            <p id="1"></p>
+            <p id="2"></p>
+
+
+
+            <table id="demo">
+                <tr>
+                    <th>ID</th>
+                    <th>BRAND</th>
+                    <th>PRICE</th>
+                    <th>RATINGS</th>
+                </tr>
+            </table>
+
+        </h2>
+        <button id="btn" type="button" onclick="loaddoc()">clickme</button>
+    </div>
+    </table>
+    <script>
+        let y = document.getElementById("demo")
+
+        function loaddoc() {
+            const xhr = new XMLHttpRequest()
+            xhr.open("GET", "http://dummyjson.com/products", true)
+            xhr.responseType = "json"
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    let q = xhr.response.products
+                    let len = q.length
+                    let table = "<tr><th>ID</th><th>BRAND</th><th>PRICE</th><th>RATINGS</th></tr>"
+                    for (let i = 0; i < len; i++) {
+                        y.innerHTML += "<tr><td>" + q[i].id + "</td><td>" + q[i].brand + "</td><td>" + q[i].price + "</td><td>" + q[i].rating + "</td></tr>"
+
+                        console.log(q[i].id)
+                        console.log(q[i].brand)
+                        console.log(q[i].price)
+                        console.log(q[i].rating)
+                    }
+                    // document.getElementById("demo").innerHTML = table
+
+
+
+                } else {
+                    console.log("error found")
+                }
+            }
+            xhr.send()
+        }
+
+
+
+        // function loaddoc() {
+        //     const xhttp = new XMLHttpRequest()
+        //     xhttp.onload = function() {
+        //         myfunction(xml)
+        //     }
+        //     xhttp.open("GET", "ajax.xml")
+        //     xhttp.send()
+        // }
+
+        // function myFunction(xml) {
+        //     const xmlDoc = xml.responseXML;
+        //     const x = xmlDoc.getElementsByTagName("CD");
+        //     let table = "<tr><th>ARTIST</th><th>TITLE</th></tr>"
+        //     for (let i = 0; i < x.length; i++) {
+        //         table += "<tr><td>" + x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+        //             "</td><td>" +
+        //             x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+        //             "</td></tr>";
+        //     }
+        //     document.getElementById("demo").innerHTML = table;
+        // }
+    </script>
+
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid blue;
+        border-collapse: separate;
+    }
+    
+    th,
+    td {
+        padding: 5px;
+    }
+</style>
+
+<body>
+
+    <h2>The XMLHttpRequest Object</h2>
+
+    <button type="button" onclick="loadDoc()">Get my CD collection</button>
+    <br><br>
+    <table id="demo"></table>
+
+    <script>
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                myFunction(this);
+            }
+            xhttp.open("GET", "ajax.xml");
+            xhttp.send();
+        }
+
+        function myFunction(xml) {
+            const xmlDoc = xml.responseXML;
+            const x = xmlDoc.getElementsByTagName("CD");
+            let table = "<tr><th>Artist</th><th>Title</th></tr>";
+            for (let i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+    </script>
+
+</body>
+
+</html> -->

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this html for practicing function in Js</title>
+</head>
+<p id='demo'>This is multiplication by function in JS</p>
+<p id='demo1'>This is multiplication by function in JS</p>
+<script>
+    // let x = myfunction(5, 5)
+
+    // function myfunction(p1, p2) {
+    //     return p1 * p2
+    // }
+
+    // document.getElementById('demo').innerHTML = x
+    // alert(x)
+
+    // Celcious to feranhit convertion
+    // function tocelcious(f) {
+    //     return (5 / 9) * (f - 32)
+    // }
+    // document.getElementById('demo').innerHTML = "tocelcious(98.7)
+
+    //identify typeof variable with function
+    // myfunction()
+
+    // function myfunction() {
+    //     let carname = "volvo"
+
+
+    //     document.getElementById('demo').innerHTML = carname + " " + "is " + typeof carname
+    // }
+    // document.getElementById('demo1').innerHTML = carname + " " + "is " + typeof carname
+
+
+    // const person = {
+    //     fname: "piyush",
+    //     lname: "padaria",
+    //     fullname: function() {
+    //         return this.fname + " " + this.lname
+    //     }
+
+    // }
+
+    // const member = {
+    //     fname: "rahul",
+    //     lname: "gajera"
+    // }
+
+    // let x = person.fullname.bind(member)
+    // setTimeout(x, 15000)
+    // document.getElementById('demo').innerHTML = x()
+
+    // let counter = 0
+
+    // function add() {
+    //     let counter = 0;
+
+    //     function plus() {
+    //         counter += 1
+    //     };
+    //     plus()
+    //     plus()
+    //     plus()
+    //     return counter;
+    // }
+
+    const add = (function() {
+            let counter = 1
+            return function() {
+                counter += 1;
+                return counter
+            }
+        })
+        ();
+
+
+    console.log(add())
+</script>
+
+
+
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Project</title>
+</head>
+
+<body>
+    <div id="root">
+        <button id="btn">Click</button>
+    </div>
+
+    <script>
+        // var button = document.getElementById('btn')
+        // button.addEventListener('click', myfunction)
+
+        // var root = document.getElementById('root')
+
+        // function cardfun(item) {
+        //     const card = document.createElement('h2')
+        //     card.classList.add('card')
+
+        //     const photoes = document.createElement('img')
+        //     photoes.classList.add('imj')
+        //     photoes.src = item.thumbnailUrl
+
+        //     const title = document.createElement('h4')
+        //     title.classList.add('title')
+        //     title.innerHTML = item.title
+
+        //     card.appendChild(photoes)
+        //     card.appendChild(title)
+        //     root.appendChild(card)
+
+
+
+        // }
+
+        // function displayimages(items) {
+        //     console.log(items)
+        //     items.forEach(function(item) {
+        //         cardfun(item)
+
+        //     });
+        // }
+
+        // function myfunction() {
+        //     // fetch('https://jsonplaceholder.typicode.com/photos')
+        //     fetch('https://fakestoreapi.com/products/category/jewelery')
+        //         .then((res) => res.json())
+        //         .then((items) => {
+        //             displayimages(items)
+        //         })
+
+        // }
+
+        let i = 0
+        let items
+
+        var button = document.getElementById('btn')
+        button.addEventListener('click', myfunction)
+
+        var root = document.getElementById('root')
+
+        function cardfun(item) {
+            const card = document.createElement('h2')
+            card.classList.add('card')
+
+            const photoes = document.createElement('img')
+            photoes.classList.add('img')
+            photoes.src = item.image
+
+            const title = document.createElement('h4')
+            title.classList.add('title')
+            title.innerHTML = item.title
+
+            const btn1 = document.createElement('button')
+            btn1.classList.add('btn1')
+            btn1.innerHTML = "Next Record"
+            btn1.onclick = function displayimages(_items) {
+
+                cardfun(items[i++])
+
+            }
+
+
+
+            card.appendChild(photoes)
+            card.appendChild(title)
+            card.appendChild(btn1)
+            root.appendChild(card)
+        }
+
+
+        function displayimages(_items) {
+            items = _items
+
+            console.log(items[4])
+            cardfun(items[i])
+        }
+
+        // items.forEach(item => {
+        //     cardfun(item)
+        // });
+
+        function myfunction() {
+            fetch('https://fakestoreapi.com/products/category/jewelery')
+                .then((res) => res.json())
+                .then((items) => displayimages(items))
+        }
+    </script>
+
+    // </body>
+
+//
+
+</html>

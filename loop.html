@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loop</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+
+    <script>
+        // const cars = ["maruti", "hundai", "tata", "ford", "bmw"]
+        // let tex = ""
+        // for (let i = 0; i < cars.length; i++) {
+        //     tex += "your car is " + cars[i] + "<br>"
+        // }
+
+
+        // let biodata = {
+        //     fname: "Piyush",
+        //     age: "35",
+        //     height: "6.3"
+        // }
+
+        // let biodata = [22, 25, 24, 23, 66, 25]
+        // let tex = ""
+        // for (let x in biodata) {
+        //     tex += biodata[x] + " <br>  "
+        // }
+        // document.getElementById("demo").innerHTML = tex;
+
+        // let num = [22, 25, 24, 23, 66, 25]
+        //     // let num = ["p", "r", "c"]
+        // let msg = ""
+        // for (x of num) {
+        //     msg += x + "<br>"
+        // }
+        // document.getElementById("demo").innerHTML = msg;
+
+        // let text = "";
+        // let i = 0;
+        // do {
+        //     text += "<br>The number is " + i;
+        //     i = i + 2;
+        // }
+
+        // while (i < 10)
+        // document.getElementById("demo").innerHTML = text;
+
+        // let text = "";
+        // let i = 0
+        // let name = ['piyush', 'rahul', 'chirag', 'sagar']
+
+        // while (name[i]) {
+        //     text += name[i] + '<br>'
+        //     i++
+        // }
+        // document.getElementById("demo").innerHTML = text;
+
+        let tex = ""
+        for (let i = 0; i < 10; i++) {
+            if (i == 3) {
+                continue
+            }
+            tex += i + "<br>"
+        }
+        document.getElementById("demo").innerHTML = tex;
+    </script>
+
+</body>
+
+</html>

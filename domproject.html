@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do list</title>
+    <style>
+        h1 {
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add Fruit Name</h1>
+        <input type="text" id="input" style="margin-top: 5px;width: 8cm;">
+        <button id="submit" style="size: 5px; background-color: blue; color: white;">ADD</button>
+    </div>
+    <div>
+        <ul id="list">
+
+        </ul>
+    </div>
+    <script>
+        let btn = document.getElementById('submit')
+        let listitems = document.getElementById('list')
+
+        btn.addEventListener('click', myfunction)
+
+        function myfunction(e) {
+            e.preventDefault
+            let inputvalue = document.getElementById("input").value
+
+            console.log(listitems)
+            var li = document.createElement('li')
+            li.className = "listitems"
+            li.innerHTML = inputvalue
+
+            var button = document.createElement('button')
+            button.className = 'btn btn-danger'
+            button.style = "float:left;"
+            button.innerHTML = "X"
+            button.onclick = myfunction1
+
+            li.appendChild(button)
+            listitems.appendChild(li)
+
+            document.getElementById("input").value = ""
+
+
+
+        }
+
+        // listitems.addEventListener('click', myfunction1)
+
+        function myfunction1(e) {
+            console.log(e.target.parentElement)
+            var li = e.target.parentElement
+            listitems.removeChild(li)
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learning this function in javascript</title>
+</head>
+
+<body>
+    <p id="demo">this function in javascript</p>
+
+    <script>
+        const person = {
+            fname: "piyush",
+            lname: "padaria",
+            fullname: function() {
+                return this.fname + '  ' + this.lname
+            }
+        }
+
+        const person1 = {
+            fname: "rahul",
+            lname: "gajera"
+        }
+
+        document.getElementById('demo').innerHTML = person.fullname.call(person1)
+            // document.getElementById('demo').innerHTML = person.fullname.bind(person1)
+    </script>
+
+</body>
+
+</html>
